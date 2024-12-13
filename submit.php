@@ -26,7 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$founderName', '$email', '$contact', '$country', '$startUpName', '$pitchDesc')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<p style='color:green;'>Pitch submitted successfully!</p>";
+        echo "<h2>Pitch Submitted Successfully!</h2>";
+        echo "<p><strong>Founder Name:</strong> $founderName</p>";
+        echo "<p><strong>Email:</strong> $email</p>";
+        echo "<p><strong>Contact Number:</strong> $contact</p>";
+        echo "<p><strong>Country:</strong> $country</p>";
+        echo "<p><strong>Startup Name:</strong> $startUpName</p>";
+        echo "<p><strong>Pitch Description:</strong> $pitchDesc</p>";
     } else {
         echo "<p style='color:red;'>Error: " . $sql . "<br>" . $conn->error . "</p>";
     }
@@ -38,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Close connection
 $conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -170,4 +175,3 @@ $conn->close();
     </div>
 </body>
 </html>
-
